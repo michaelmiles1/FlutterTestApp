@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       title: 'Welcome to Flutter',
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Welcome to Flutter'),
+          title: const Text('Random Word Generator'),
         ),
         body: const Center(
           child: RandomWords(),
@@ -51,7 +51,12 @@ class _RandomWordsState extends State<RandomWords> {
         if (i >= _suggestions.length) {
           _suggestions.addAll(generateWordPairs().take(10));
         }
-        return Text(_suggestions[i].asPascalCase);
+        return ListTile(
+          title: Text(
+            _suggestions[i].asPascalCase,
+            style: _biggerFont,
+          ),
+        );
       },
     );
   }
